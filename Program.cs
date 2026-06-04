@@ -66,5 +66,28 @@
             
         }
 
+        static BookingNode Insert(BookingNode node, DateTime time, string patientName)
+        {
+            if (node == null)
+            {
+                return new BookingNode(time, patientName);
+            }
+
+            if (time < node.Time)
+            {
+                node.Left = Insert(node.Left, time, patientName);
+            }
+
+            else
+            {
+                node.Right = Insert(node.Right, time, patientName);
+            }
+
+            return node;
+
+        }
+
+
+
     }
 }
