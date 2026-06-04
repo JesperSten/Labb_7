@@ -53,6 +53,7 @@
                     PreOrder(hospital, 0);
                     break;
 
+                // UPPGIFT 2
                 case "2":
                     Console.WriteLine("\nTidsbokningar i ordning:\n");
 
@@ -75,6 +76,33 @@
                     root2 = Insert(root2, new DateTime(2025, 3, 10, 12, 25, 0), "Qadar Abdulle");
 
                     TraverseInOrder(root2);
+
+                    break;
+
+                // UPPGIFT 3
+                case "3":
+                    DecisionNode root = new DecisionNode("Har du feber över 39 grader?", true);
+
+                    DecisionNode breathing = new DecisionNode("Har du svårt att andas?", true);
+                    DecisionNode throat = new DecisionNode("Har du ont i halsen?", true);
+
+                    DecisionNode call112 = new DecisionNode("Ring 112 - AKUT!", false);
+                    DecisionNode seekCare = new DecisionNode("Sök vård imorgon.", false);
+                    DecisionNode rest = new DecisionNode("Vila och drick vatten.", false);
+                    DecisionNode work = new DecisionNode("Gå och jobba.", false);
+
+                    // Koppla ihop noderna
+                    root.Yes = breathing;
+                    root.No = throat;
+
+                    breathing.Yes = call112;
+                    breathing.No = seekCare;
+
+                    throat.Yes = rest;
+                    throat.No = work;
+
+                    // Starta boten
+                    RunDiagnosisBot(root);
 
                     break;
             }
@@ -134,6 +162,35 @@
             TraverseInOrder(node.Right);
         }
 
+        static void RunDiagnosisBot(DecisionNode root)
+        {
+            DecisionNode current = root;
+
+            Console.WriteLine("Välkommen till Diagnos-Boten");
+            Console.WriteLine("============================");
+
+            while (current.IsQuestion)
+            {
+                Console.Write(current.Text + " (j/n): ");
+                string answer = Console.ReadLine().ToLower();
+
+                if (answer == "j")
+                {
+                    current = current.Yes;
+                }
+                else if (answer == "n")
+                {
+                    current = current.No;
+                }
+                else
+                {
+                    Console.WriteLine("Svara endast med j eller n.");
+                }
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("REKOMMENDATION: " + current.Text);
+        }
 
 
     }
