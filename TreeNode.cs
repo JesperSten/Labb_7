@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Labb_7
 {
+    // En klass som representerar en nod i ett träd
     public class TreeNode
     {
         public string Id { get; set; }

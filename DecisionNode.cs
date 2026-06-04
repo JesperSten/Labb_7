@@ -4,6 +4,7 @@ using System.Text;
 
 namespace Labb_7
 {
+    // En klass som representerar en nod i ett beslutsträd
     public class DecisionNode
     {
         public string Text { get; set; }

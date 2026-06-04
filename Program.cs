@@ -109,11 +109,9 @@
 
 
 
-
-
-            
-
         }
+
+        // UPPGIFT 1 - PreOrder traversal
 
         static void PreOrder(TreeNode node, int level)
         {
@@ -129,6 +127,7 @@
             
         }
 
+        // UPPGIFT 2 - Binary sökträd för tidsbokningar
         static BookingNode Insert(BookingNode node, DateTime time, string patientName)
         {
             if (node == null)
@@ -150,6 +149,8 @@
 
         }
 
+
+        // In-order traversal för att visa bokningarna i tidsordning
         static void TraverseInOrder(BookingNode node)
         {
             if (node == null)
@@ -162,6 +163,7 @@
             TraverseInOrder(node.Right);
         }
 
+        // UPPGIFT 3 - Diagnos-Bot
         static void RunDiagnosisBot(DecisionNode root)
         {
             DecisionNode current = root;
