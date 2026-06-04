@@ -59,6 +59,7 @@
 
                     BookingNode root1 = null;
 
+                    // Sorterad inmatning
                     Console.WriteLine("______Sorterad inmatning_____");
                     root1 = Insert(root1, new DateTime(2024, 12, 1, 9, 30, 0), "Mika Niininen");
                     root1 = Insert(root1, new DateTime(2025, 6, 10, 10, 45, 0), "Saaid Geesey");
@@ -70,6 +71,7 @@
                     Console.WriteLine("\n______Osorterad inmatning_____");
                     BookingNode root2 = null;
 
+                    // Osorterad inmatning
                     root2 = Insert(root2, new DateTime(2026, 12, 1, 9, 30, 0), "Mika Niininen");
                     root2 = Insert(root2, new DateTime(2023, 6, 10, 10, 45, 0), "Saaid Geesey");
                     root2 = Insert(root2, new DateTime(2025, 12, 10, 11, 12, 0), "Jesper Sten");
@@ -81,6 +83,8 @@
 
                 // UPPGIFT 3
                 case "3":
+
+                    // Skapa noderna
                     DecisionNode root = new DecisionNode("Har du feber över 39 grader?", true);
 
                     DecisionNode breathing = new DecisionNode("Har du svårt att andas?", true);
